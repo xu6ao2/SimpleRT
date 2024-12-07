@@ -22,6 +22,11 @@
 
 #include "utils.h"
 
+#if defined(__linux__) && !defined(__GLIBC__)
+#include "resolv_compat.h"
+#include <stdio.h>
+#endif
+
 const char *get_system_nameserver(void)
 {
     struct __res_state rs;
