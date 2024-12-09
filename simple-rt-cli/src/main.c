@@ -31,6 +31,10 @@
 #include "network.h"
 #include "utils.h"
 
+#if defined(__linux__) && !defined(__GLIBC__)
+#include <fcntl.h>
+#endif
+
 #define PID_FILE "/var/run/simple_rt.pid"
 
 static int hotplug_callback(struct libusb_context *ctx,
