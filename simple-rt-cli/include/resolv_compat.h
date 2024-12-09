@@ -16,14 +16,4 @@ static inline int res_ninit(res_state statp)
         }
         return rc;
 }
-
-static inline int res_nclose(res_state statp)
-{
-        if (!statp)
-                return -1;
-        if (statp != &_res) {
-                memset(statp, 0, sizeof(*statp));
-        }
-        return 0;
-}
 #endif
